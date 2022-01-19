@@ -1,0 +1,30 @@
+<?php
+namespace app\controllers;
+    use app\core\Application;
+    use app\core\Controller;
+
+    class SiteController extends Controller
+    {
+        public function home(){
+            $params = [];
+            return $this->render('home', $params);
+        }
+
+        public function reservation(){
+            return $this->render('reservation',$params = []);
+        }
+
+        public function roomsView(){
+            return $this->render('roomsView', $params = []);
+        }
+
+        public function cleaning(){
+            return $this->render('cleaning', $params = []);
+        }
+
+        public function handleReservation($request){
+            $body = $request->getBody();
+            var_dump($body);
+            return 'Handling data <br>';
+        }
+    }

@@ -1,0 +1,20 @@
+{
+    "name": "marty/hotel",
+    "autoload": {
+        "psr-4": {
+            "Marty\\Hotel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MartinHvězda",
+            "email": "martystar3@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
