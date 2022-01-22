@@ -4,6 +4,7 @@
 
     use app\core\Controller;
     use app\core\Application;
+    use app\core\FileManager;
     use app\models\Customer;
     use app\models\Reservation;
 
@@ -53,8 +54,11 @@
                     }
                 }
             }
+            FileManager::save($this->calendar()->jsonSerialize(), Application::$ROOT_DIR.'\\jsonObjects\\calendar.json');
+            var_dump($this->calendar()->jsonSerialize());
             $this->calendar()->show();
             $this->calendar()->setCalendar($calendar);
+
             $this->calendar()->show();
         }
 

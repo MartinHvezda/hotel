@@ -22,6 +22,10 @@ namespace app\controllers;
             return $this->render('cleaning', $params = []);
         }
 
+        public function cleaningView(){
+            return $this->render('cleaningView', $params = []);
+        }
+
         public function handleReservation($request){
             $body = $request->getBody();
             var_dump($body);

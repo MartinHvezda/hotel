@@ -1,6 +1,6 @@
 <?php
 
-    namespace app\models;
+    namespace app\models\staff;
 
     class Receptionist extends Employee implements Payment
     {

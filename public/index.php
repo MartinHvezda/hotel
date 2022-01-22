@@ -12,6 +12,7 @@
     $app->router->get('/reservation', [SiteController::class, 'reservation']);
     $app->router->get('/roomsView', [SiteController::class, 'roomsView']);
     $app->router->get('/cleaning', [SiteController::class, 'cleaning']);
+    $app->router->get('/cleaningView', [SiteController::class, 'cleaningView']);
     $app->router->post('/reservation', [ReservationController::class, 'createReservation']);
 
 

@@ -3,9 +3,11 @@
     namespace app\models;
     use app\models\HotelRooms;
 
-    class Calendar
+    class Calendar implements \JsonSerializable
     {
         private static $currentYear;
+        private $year;
+        private $calendar = [];
 
         /**
          * @return mixed
@@ -30,9 +32,6 @@
         {
             return $this->calendar;
         }
-
-        private $year;
-        private $calendar = [];
 
         public function __construct($year) {
             $rooms = new HotelRooms();
@@ -69,7 +68,7 @@
                         foreach ( $this->calendar[$key][$this->year][$key2][$key3] as $key4 => $value4) {
                             echo "$key4 <br>";
                             foreach ( $this->calendar[$key][$this->year][$key2][$key3][$key4] as $key5 ) {
-                                echo 'Rezervation: ' . $key5->getCustomer()->getFirstName() . $key5->getCustomer()->getLastName(). '<br>';
+                                echo 'Rezervation: ' . $key5->getCustomer()->getFirstName() . ' ' . $key5->getCustomer()->getLastName(). '<br>';
 
                             }
                         }
@@ -86,4 +85,13 @@
             $this->calendar = $calendar;
         }
 
+        public function jsonSerialize()
+        {
+
+            return [
+            'private_static_currentYear' => self::$currentYear,
+            'private_year' => $this->getYear(),
+            'private_calendar' => $this->getCalendar()
+        ];
+        }
     }

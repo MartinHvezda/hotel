@@ -31,6 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/cleaning">Cleaning</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cleaningView">Cleaning View</a>
+                    </li>
                 </ul>
             </div>
         </div>

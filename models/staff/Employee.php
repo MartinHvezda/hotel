@@ -1,6 +1,6 @@
 <?php
 
-    namespace app\models;
+    namespace app\models\staff;
 
     abstract class Employee
     {
@@ -11,6 +11,7 @@
         private $job;
         private $hoursWorkedLastMonth;
         private $hourRate;
+
 
         /**
          * @param $firstName
@@ -144,7 +145,7 @@
             $this->hourRate = $hourRate;
         }
 
-        abstract protected function work();
+        abstract protected function work($params, $params2);
 
         protected function returnWorkStats() {
             $payroll = $this->hourRate * $this->hoursWorkedLastMonth;
@@ -154,6 +155,11 @@
             Payroll: $payroll <br>
              ";
 
+        }
+
+        public function __toString()
+        {
+            return "$this->firstName $this->lastName";
         }
 
     }

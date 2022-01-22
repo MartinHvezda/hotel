@@ -7,11 +7,8 @@
 <form action="" method="post">
     <div class="mb-3">
         <label>Maid</label>
-        <input type="text" name="maid" class="form-control" >
+        <?php  echo $cleaningController->createSelect() ?>
     </div>
-
-        <?php  echo $cleaningController->createSelect(['maid', 'maid2'], 'id1') ?>
-
     <div class="mb-3">
         <label>First Room</label>
         <input type="text" name="firstRoom" class="form-control" >
