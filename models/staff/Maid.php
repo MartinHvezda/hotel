@@ -13,6 +13,14 @@
             $this->hoursToCleanRoom = $hoursToCleanRoom;
         }
 
+        /**
+         * @return mixed
+         */
+        public function getHoursToCleanRoom()
+        {
+            return $this->hoursToCleanRoom;
+        }
+
         protected function work($rooms, $hours)
         {
             $cleanedRooms = 0;
@@ -27,4 +35,5 @@
             }
             return $cleanedRooms * $this->hoursToCleanRoom;
         }
+
     }

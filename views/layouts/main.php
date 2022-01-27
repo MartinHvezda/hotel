@@ -2,7 +2,7 @@
     use app\core\Application;
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="cs">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

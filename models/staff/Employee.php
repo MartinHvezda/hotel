@@ -116,17 +116,17 @@
         /**
          * @return mixed
          */
-        protected function getHoursWorked()
+        protected function getHoursWorkedLastMonth()
         {
             return $this->hoursWorkedLastMonth;
         }
 
         /**
-         * @param mixed $hoursWorked
+         * @param mixed $hoursWorkedLastMonth
          */
-        protected function setHoursWorked($hoursWorked)
+        protected function setHoursWorkedLastMonth($hoursWorkedLastMonth)
         {
-            $this->hoursWorkedLastMonth = $hoursWorked;
+            $this->hoursWorkedLastMonth = $hoursWorkedLastMonth;
         }
 
         /**

@@ -3,6 +3,8 @@
     namespace app\core;
     use app\core\Request;
     use app\models\Calendar;
+    use app\models\HotelRooms;
+    use app\models\Room;
     use app\models\staff\Maid;
     use app\models\Reservation;
 
@@ -49,12 +51,9 @@
 
         public function run() {
             echo $this->router->resolve();
-            echo self::$ROOT_DIR.'\\jsonObjects\\calendar.json';
+
 
             echo '<br>';
 
-            $this->calendar = FileManager::load(self::$ROOT_DIR.'\\jsonObjects\\calendar.json');
-
-            //$this->calendar->show();
         }
     }

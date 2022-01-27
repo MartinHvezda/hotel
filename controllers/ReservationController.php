@@ -10,7 +10,6 @@
 
     class ReservationController extends Controller
     {
-
         public  function createReservation($request) {
             $this->getRegistrationData($request);
         }
@@ -19,7 +18,6 @@
             $body = $request->getBody();
             $customer = new Customer($body['firstname'], $body['lastname'], $body['email']);
             $reservation = new Reservation($customer, $body['room'], $body['firstDate'], $body['lastDate']);
-            //print_r("$customer - $reservation <br>");
             $this->validateReservation($this->calendar()->getCalendar(), $reservation);
         }
 
@@ -54,12 +52,6 @@
                     }
                 }
             }
-            FileManager::save($this->calendar()->jsonSerialize(), Application::$ROOT_DIR.'\\jsonObjects\\calendar.json');
-            var_dump($this->calendar()->jsonSerialize());
-            $this->calendar()->show();
-            $this->calendar()->setCalendar($calendar);
-
-            $this->calendar()->show();
         }
 
         private function calendar() {

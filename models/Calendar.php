@@ -3,7 +3,7 @@
     namespace app\models;
     use app\models\HotelRooms;
 
-    class Calendar implements \JsonSerializable
+    class Calendar
     {
         private static $currentYear;
         private $year;
@@ -85,13 +85,28 @@
             $this->calendar = $calendar;
         }
 
-        public function jsonSerialize()
-        {
+        public function getJsonCalendar() {
+            $jsonString = '[';
+            foreach ($this->calendar as $index => $value2) {
+                foreach ($this->calendar[$index] as $year => $value2) {
+                    foreach ($this->calendar[$index][$year] as $month => $value3) {
+                        foreach ($this->calendar[$index][$year][$month] as $day => $value4) {
+                            $jsonString .= "{\"$index\":{\"$year\":{\"$month\":{\"$day\":[";
+                            foreach ($this->calendar[$index][$year][$month][$day] as $room) {
+                                $jsonString .= json_encode($room).',';
+                            }
+                            $jsonString = substr($jsonString, 0, -1);
+                            $jsonString .= ']}}}},';
+                        }
 
-            return [
-            'private_static_currentYear' => self::$currentYear,
-            'private_year' => $this->getYear(),
-            'private_calendar' => $this->getCalendar()
-        ];
-        }
+
+                    }
+                }
+            }
+            $jsonString = substr($jsonString, 0, -1);
+            $jsonString .= ']';
+                return $jsonString;
+            }
+
+
     }
