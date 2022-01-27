@@ -41,7 +41,9 @@
             $this->request = new Request();
             $this->response = new Response();
             $this->router = new Router($this->request, $this->response);
-            $this->calendar = new Calendar(2022);
+            if(empty($this->calendar)) {
+                $this->calendar = unserialize($_SESSION['calendar']);
+            }else $this->calendar = new Calendar(2022);
             $this->maids = [new Maid('Růžena', 'Svatošová', 'ruzena.svatosova@gmail.com',
                 '123456789', 'maid', 0, 120, 0.5),
                 new Maid('Emílie', 'Hrbáčová', 'emilie.hrbacova@gmail.com',
@@ -52,8 +54,8 @@
         public function run() {
             echo $this->router->resolve();
 
-
             echo '<br>';
-
+            $this->calendar = unserialize($_SESSION['calendar']);
+            $this->calendar->show();
         }
     }

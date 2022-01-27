@@ -39,11 +39,11 @@
                 foreach ($calendar[$i][$year] as $key2 => $value2) {
                     foreach ($calendar[$i][$year][$key2] as $key3 => $value3) {
                         foreach ($calendar[$i][$year][$key2][$key3] as $key4 => $value4) {
-                            if ($key4 == $room) {
+                            if (($key4 == $room) && empty($key4)) {
                                 $calendar[$i][$year][$key2][$key3][$key4] = [$reservation];
-                                var_dump($calendar[$i][$year][$key2][$key3][$key4]);
-                                echo "$key3 - $key4, " ;
-                                echo "add";
+                            } else {
+                                echo 'Zabraný termín';
+                                exit;
                             }
 
                         }
@@ -51,6 +51,10 @@
 
                     }
                 }
+                echo '<br>';
+                $this->calendar()->show();
+                $this->calendar()->setCalendar($calendar);
+                $_SESSION['calendar'] = serialize($this->calendar());
             }
         }
 
