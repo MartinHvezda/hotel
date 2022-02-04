@@ -11,8 +11,10 @@
 
         public function createSelect() {
             $values = Application::$app->maids;
-            $this->createSelectInput($values);
+            $this->createSelectInput($values, 'maid');
         }
+
+
 
 
     }

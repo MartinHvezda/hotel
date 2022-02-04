@@ -4,7 +4,7 @@
 
     trait Field
     {
-        public function createSelectInput($values) {
+        public function createSelectInput($values, $name) {
             $options = array();
             foreach ($values as $value) {
                 $options[] = "<option value='$value'>$value</option>";
@@ -12,7 +12,7 @@
 
             $return = "<div class='input-group mb-3'>
                 <label class='input-group-text' for='inputGroupSelect01'>Options</label>
-                <select class='form-select' id='inputGroupSelect01'>
+                <select name='$name' class='form-select' id='inputGroupSelect01'>
                     <option selected>Choose...</option>" .
                     implode($options) .
                 "</select>

@@ -34,6 +34,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/cleaningView">Cleaning View</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/employeeRegistration">Employee  Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/onlinePayment">Online Payment</a>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -35,30 +35,43 @@
             }
             $lastIndex = $firstIndex + $reservation->getDateLength();
 
+            $done = false;
             for ($i = $firstIndex; $i < $lastIndex; $i++) {
                 foreach ($calendar[$i][$year] as $key2 => $value2) {
                     foreach ($calendar[$i][$year][$key2] as $key3 => $value3) {
                         foreach ($calendar[$i][$year][$key2][$key3] as $key4 => $value4) {
-                            if (($key4 == $room) && empty($key4)) {
-                                $calendar[$i][$year][$key2][$key3][$key4] = [$reservation];
-                            } else {
-                                echo 'Zabraný termín';
-                                exit;
-                            }
 
-                        }
+                                if ($value4 == $room) {
+                                    $calendar[$i][$year][$key2][$key3][$key4] = [$reservation];
+                                    $done = true;
+                                }
+
+                            }
 
 
                     }
                 }
+                }
+                $this->finalize($done, $calendar, $reservation);
+            }
+
+
+        private function finalize($status, $calendar, $reservation)
+        {
+            if ($status) {
                 echo '<br>';
                 $this->calendar()->show();
                 $this->calendar()->setCalendar($calendar);
                 $_SESSION['calendar'] = serialize($this->calendar());
-            }
-        }
 
+
+                $array = unserialize($_SESSION['reservations']);
+                array_push($array, $reservation);
+                $_SESSION['reservations'] = serialize($array);
+            } else echo 'Zabraný termín';
+        }
         private function calendar() {
             return Application::$app->calendar;
         }
+
     }

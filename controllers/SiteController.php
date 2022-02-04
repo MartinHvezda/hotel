@@ -26,6 +26,14 @@ namespace app\controllers;
             return $this->render('cleaningView', $params = []);
         }
 
+        public function employeeRegistration(){
+            return $this->render('employeeRegistration', $params = []);
+        }
+
+        public function onlinePayment(){
+            return $this->render('onlinePayment', $params = []);
+        }
+
         public function handleReservation($request){
             $body = $request->getBody();
             var_dump($body);
