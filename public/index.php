@@ -17,8 +17,9 @@
     $app->router->get('/cleaningView', [SiteController::class, 'cleaningView']);
     $app->router->post('/reservation', [ReservationController::class, 'createReservation']);
     $app->router->get('/employeeRegistration', [SiteController::class, 'employeeRegistration']);
-    $app->router->post('/employeeRegistration', [EmployeeRegistrationController::class, 'registerEmployee']);
+    $app->router->post('/employeeRegistration', [EmployeeRegistrationController::class, 'getRegistrationData']);
     $app->router->get('/onlinePayment', [SiteController::class, 'onlinePayment']);
     $app->router->post('/onlinePayment', [OnlinePaymentController::class, 'pay']);
+    $app->router->get('/successfulRegistration', [SiteController::class, 'successfulRegistration']);
 
     $app->run();

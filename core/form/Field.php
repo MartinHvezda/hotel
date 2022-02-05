@@ -20,12 +20,5 @@
             echo $return;
         }
 
-        public function createOptions($options) {
-            $return = array();
-            foreach ($options as $option) {
-                $return[] = "<option value='$option'>$option</option>";
-            }
-            return $return;
-        }
 
     }

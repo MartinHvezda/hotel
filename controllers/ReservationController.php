@@ -40,15 +40,13 @@
                 foreach ($calendar[$i][$year] as $key2 => $value2) {
                     foreach ($calendar[$i][$year][$key2] as $key3 => $value3) {
                         foreach ($calendar[$i][$year][$key2][$key3] as $key4 => $value4) {
-
-                                if ($value4 == $room) {
+                                if (($key4 == $room)) {
                                     $calendar[$i][$year][$key2][$key3][$key4] = [$reservation];
                                     $done = true;
                                 }
 
-                            }
 
-
+                        }
                     }
                 }
                 }

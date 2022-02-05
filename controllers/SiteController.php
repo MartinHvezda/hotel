@@ -34,6 +34,10 @@ namespace app\controllers;
             return $this->render('onlinePayment', $params = []);
         }
 
+        public function successfulRegistration(){
+            return $this->render('successfulRegistration', $params = []);
+        }
+
         public function handleReservation($request){
             $body = $request->getBody();
             var_dump($body);

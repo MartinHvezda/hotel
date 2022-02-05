@@ -4,7 +4,7 @@
 
     abstract class Employee
     {
-        const JOB_MAID = 'maid';
+        const JOB_MAID = 'Maid';
         const JOB_RECEPTIONIST = 'receptionist';
 
         private $firstName;

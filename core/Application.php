@@ -3,6 +3,7 @@
 
 
     namespace app\core;
+    use app\core\Database\DbConnection;
     use app\core\Request;
     use app\models\Calendar;
     use app\models\Customer;
@@ -24,6 +25,7 @@
         public $maids;
         public $reservations;
         public $receptionists;
+        public $DbConnection;
 
 
 
@@ -51,6 +53,8 @@
             }else $this->calendar = new Calendar(2022);
             $this->maids = $this->maids = unserialize($_SESSION['maids']);
             $this->reservations = $this->reservations = unserialize($_SESSION['reservations']);
+            $this->DbConnection = DbConnection::connectDb();
+
             //$this->receptionists = $this->maids = $_SESSION['receptionists'];
 
 
@@ -63,6 +67,7 @@
             $this->calendar = unserialize($_SESSION['calendar']);
             $this->maids = unserialize($_SESSION['maids']);
             $this->reservations = unserialize($_SESSION['reservations']);
+
             //$this->receptionists = $_SESSION['receptionists'];
 
         }
@@ -70,16 +75,3 @@
 
     }
 
-    /*$_SESSION['maids'] = serialize([new Maid('sfsf','sfsf','sfsf', 'sfsf','sfsf',377,373,3737),
-            new Maid('sfsf','sfsf','sfsf','sfsf','sfsf',3737,3737,210)]);
-
-    $_SESSION['maids'] = serialize([new Maid('sfsf','sfsf','sfsf', 'sfsf','sfsf',377,373,3737),
-                new Maid('sfsf','sfsf','sfsf','sfsf','sfsf',3737,3737,210)]);
-
-            $array = unserialize($_SESSION['maids']);
-            array_push($array, new Maid('sfsf','sfsf','sfsf','sfsf','sfsf',3737,3737,210));
-            var_dump($array);
-            $_SESSION['maids'] = serialize($array);
-            //$_SESSION['maids'] = serialize(array_push($array, $maid));
-            echo '<br>';
-            echo '<br>';*/
